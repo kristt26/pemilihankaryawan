@@ -1,0 +1,37 @@
+.containerr {
+    display: flex;
+    height: 60vh;
+    justify-content: center;
+    align-items: center;
+    direction: row;
+}
+
+@media screen {
+    #print {
+        /* font-family:verdana, arial, sans-serif; */
+    }
+
+    .screen {
+        display: none;
+    }
+
+    .settt {
+        display: block;
+    }
+
+    @page {
+        size: landscape
+    }
+}
+
+@media print {
+
+    /* #print {font-family:georgia, times, serif;} */
+    .screen {
+        display: block;
+    }
+
+    .settt {
+        display: none;
+    }
+}

@@ -2,55 +2,115 @@
 <html lang="en" ng-app="auth">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login User</title>
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
-    <link rel="stylesheet" href="<?=base_url('dist/css/auth.css')?>">
-    <link rel="stylesheet" href="<?=base_url('dist/css/google.css')?>">
-    <link rel="stylesheet" href="<?=base_url()?>/libs/sweetalert2/dist/sweetalert2.min.css">
-    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
+    <title>
+        User Login
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 </head>
 
 <body ng-controller="userLogin">
-    <div class="login-page">
-        <div class="form">
-            <form class="register-form" ng-submit="save()">
-                <div ng-if="setForm=='create'">
-                    <h2>Registered</h2>
-                    <input type="text" placeholder="Nama Pengguna" ng-model="model.fullname" required />
-                    <input type="text" placeholder="username" ng-model="model.username" required />
-                    <input type="password" placeholder="password" ng-model="model.password" required />
-                    <input type="text" placeholder="email address" ng-model="model.email" required />
-                    <button type="submit">create</button>
-                </div>
-                <div ng-if="setForm=='reset'">
-                    <h2>Reset</h2>
-                    <input type="text" placeholder="email address" ng-model="model.email" required />
-                    <button type="submit">reset</button>
-                </div>
-                <p class="message">Already registered? <a href="#">Sign In</a></p>
-            </form>
-            <form class="login-form" ng-submit="login()">
-                <h2>Login User</h2>
-                <div class="alert alert-danger" ng-if="error">Periksa Username dan Password Anda</div>
-                <input type="text" placeholder="username" ng-model="model.username" required />
-                <input type="password" placeholder="password" ng-model="model.password" required />
-                <button type="submit">login</button><br><br>
-                <a href="<?=$loginButton?>" class="google">Sign in with google</a>
-                <p class="message">Not registered? <a href="#" ng-click="Form('create')">Create an account</a></p>
-                <p class="message">forgot password? <a href="#" ng-click="Form('reset')">Reset Password</a></p>
-            </form>
+    <div class="container position-sticky z-index-sticky top-0">
+        <div class="row">
+            <div class="col-12">
+            </div>
         </div>
     </div>
-    <script src="../../plugins/jquery/jquery.min.js"></script>
-    <script src="<?=base_url()?>/libs/angular/angular.min.js"></script>
-    <script src="<?=base_url()?>/js/services/helper.services.js"></script>
-    <script src="<?=base_url()?>/js/services/message.services.js"></script>
-    <script src="<?=base_url()?>/libs/sweetalert2/dist/sweetalert2.all.min.js"></script>
-    <script src="<?=base_url()?>/libs/swangular/swangular.js"></script>
+    <main class="main-content  mt-0">
+        <section>
+            <div class="page-header min-vh-75">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+                            <div class="card card-plain mt-8">
+                                <div class="card-header pb-0 text-left bg-transparent">
+                                    <h3 class="font-weight-bolder text-info text-gradient">Welcome back</h3>
+                                    <p class="mb-0">Enter your email and password to sign in</p>
+                                </div>
+                                <div class="card-body">
+                                    <form ng-submit="login()">
+                                        <label>Username</label>
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" ng-model="model.username" placeholder="Username"
+                                                aria-label="Username" aria-describedby="email-addon">
+                                        </div>
+                                        <label>Password</label>
+                                        <div class="mb-3">
+                                            <input type="email" class="form-control" ng-model="model.password" placeholder="Password"
+                                                aria-label="Password" aria-describedby="password-addon">
+                                        </div>
+                                        <!-- <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
+                                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                                        </div> -->
+                                        <div class="text-center">
+                                            <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign
+                                                in</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                                    <p class="mb-4 text-sm mx-auto">
+                                        Don't have an account?
+                                        <a href="javascript:;" class="text-info text-gradient font-weight-bold">Sign
+                                            up</a>
+                                    </p>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
+                                <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6"
+                                    style="background-image:url('../../assets/img/curved-images/curved6.jpg')"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mb-4 mx-auto text-center">
+                    &nbsp;
+                </div>
+                <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8 mx-auto text-center mt-1">
+                    <p class="mb-0 text-secondary">
+                        Copyright ©
+                        <script>
+                        document.write(new Date().getFullYear())
+                        </script> Hotel Permata Jayapura
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../../libs/jquery/dist/jquery.min.js"></script>
+    <script src="../../libs/angular/angular.min.js"></script>
+    <script src="../../js/services/helper.services.js"></script>
+    <script src="../../js/services/message.services.js"></script>
+    <script src="../../libs/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="../../libs/swangular/swangular.js"></script>
     <script src="../../libs/loading/dist/loadingoverlay.min.js"></script>
+    <script src="../../assets/js/core/popper.min.js"></script>
+    <script src="../../assets/js/core/bootstrap.min.js"></script>
+    <script src="../../assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="../../assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <!-- Github buttons -->
 
     <script>
     angular.module('auth', ['helper.service', 'swangular', 'message.service'])
@@ -80,13 +140,7 @@
                 url: "<?=base_url('auth/login')?>",
                 data: $scope.model
             }).then(res => {
-                if (res.data.role == 'Admin')
-                    document.location.href = helperServices.url + 'admin/home';
-                else if (res.data.role == 'Siaran')
-                    document.location.href = helperServices.url + 'siaran/home';
-                else
-                    document.location.href = helperServices.url + 'home';
-                // document.location.href = helperServices.url;
+                document.location.href = helperServices.url + '/home';
             }, err => {
                 $scope.error = true;
                 message.error(err.data.messages.error, "Ok");

@@ -31,25 +31,14 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Auth::index', ['filter' => 'ceklogin']);
+// $routes->get('/', 'Auth::index', ['filter' => 'ceklogin']);
 $routes->get('/auth', 'Auth::index', ['filter' => 'ceklogin']);
-$routes->get('/admin/home', 'admin/Home::index', ['filter' => 'auth']);
-$routes->get('/admin/layanan', 'admin/Layanan::index', ['filter' => 'auth']);
-$routes->get('/admin/tarif', 'admin/Tarif::index', ['filter' => 'auth']);
-$routes->get('/admin/users', 'admin/Users::index', ['filter' => 'auth']);
-$routes->get('/admin/laporan/iklan', 'admin/Laporan::iklan', ['filter' => 'auth']);
-$routes->get('/admin/laporan/pendapatan', 'admin/Laporan::pendapatan', ['filter' => 'auth']);
-$routes->get('/admin/statusbayar', 'admin/Statusbayar::index', ['filter' => 'auth']);
-$routes->get('/admin/iklantayang', 'admin/Iklantayang::index', ['filter' => 'auth']);
 $routes->get('/home', 'Home::index', ['filter' => 'auth']);
-$routes->get('/iklan', 'Iklan::index', ['filter' => 'auth']);
-$routes->get('/profile', 'Profile::index', ['filter' => 'auth']);
-$routes->get('/admin/jadwal', 'admin/Jadwal::index', ['filter' => 'auth']);
-$routes->get('/siaran/jadwal', 'siaran/Jadwal::index', ['filter' => 'auth']);
-$routes->get('/jadwal', 'Jadwal::index', ['filter' => 'auth']);
-$routes->get('/siaran/home', 'siaran/Home::index', ['filter' => 'auth']);
-$routes->get('/siaran/order', 'siaran/Order::index', ['filter' => 'auth']);
-$routes->get('/siaran/iklantayang', 'admin/Iklantayang::index', ['filter' => 'auth']);
+$routes->get('/analysis', 'Analysis::index', ['filter' => 'auth']);
+$routes->get('/karyawan', 'Karyawan::index', ['filter' => 'auth']);
+$routes->get('/kriteria', 'Kriteria::index', ['filter' => 'auth']);
+$routes->get('/penilaian', 'Penilaian::index', ['filter' => 'auth']);
+$routes->get('/periode', 'Periode::index', ['filter' => 'auth']);
 
 /*
  * --------------------------------------------------------------------

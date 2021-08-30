@@ -9,10 +9,10 @@ class Home extends BaseController
 
 	public function index()
 	{
-		$data['datamenu'] = ['menu'=>"Dashboard"];
-		$data['sidebar'] = view('layout/sidebar');
+		$dataa['datamenu'] = ['menu'=>"Dashboard"];
+		$data['sidebar'] = view('layout/sidebar', $dataa);
 		$data['header'] = view('layout/header');
-		$data['content'] = "";
+		$data['content'] = view('home');
 		return view('layout/layout', $data);
 	}
 }

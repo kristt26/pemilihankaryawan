@@ -13,7 +13,7 @@ class CekLogin implements FilterInterface
         // if user not logged in
         if (session()->get('logged_in')) {
             // then redirct to login page
-            return redirect()->to('/admin/home');
+            return redirect()->to('/home');
         }
     }
     //--------------------------------------------------------------------
