@@ -25,7 +25,7 @@ class Analysis extends BaseController
 
 	public function index()
 	{
-        $dataa['datamenu'] = ['menu' => "Karyawan"];
+        $dataa['datamenu'] = ['menu' => "Analysis"];
 		$data['sidebar'] = view('layout/sidebar', $dataa);
 		$data['content'] = view('analysis');
 		return view('layout/layout', $data);
