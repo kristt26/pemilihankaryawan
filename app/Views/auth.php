@@ -44,7 +44,7 @@
                                         </div>
                                         <label>Password</label>
                                         <div class="mb-3">
-                                            <input type="email" class="form-control" ng-model="model.password" placeholder="Password"
+                                            <input type="password" class="form-control" ng-model="model.password" placeholder="Password"
                                                 aria-label="Password" aria-describedby="password-addon">
                                         </div>
                                         <!-- <div class="form-check form-switch">
