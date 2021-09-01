@@ -310,16 +310,16 @@ function penilaianController($scope, penilaianServices, kriteriaServices, messag
             message.dialog("Anda yakin ingin mengubah data?", "Ya", "Tidak").then(x=>{
                 penilaianServices.put(item).then(res=>{
                     message.info('Proses Berhasil !!!');
-                    // $("#inputKaryawan").modal('hide');
-                    // $scope.model = {};
+                    $("#formNilai").modal('hide');
+                    $scope.model = {};
                 })
             })
         }else{
             message.dialog("Anda yakin ingin menyimpan data?", "Ya", "Tidak").then(x=>{
                 penilaianServices.post(item).then(res=>{
                     message.info('Proses Berhasil !!!');
-                    // $("#inputKaryawan").modal('hide');
-                    // $scope.model = {};
+                    $("#formNilai").modal('hide');
+                    $scope.model = {};
                 })
             })
         }
