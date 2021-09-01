@@ -103,7 +103,7 @@ _modules/*
 nbproject/
 build/
 nbbuild/
-dist/
+# dist/
 nbdist/
 nbactions.xml
 nb-configuration.xml
@@ -124,6 +124,6 @@ nb-configuration.xml
 /results/
 /phpunit*.xml
 /.phpunit.*.cache
-
+node_modules
 app/Config/App.php
 
