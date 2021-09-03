@@ -253,7 +253,7 @@ function periodeController($scope, periodeServices, message) {
     
     $scope.save = (item)=>{
         if(item.id){
-            message.dialog("Anda yakin ingin mengubah data karyawan?", "Ya", "Tidak").then(x=>{
+            message.dialog("Anda yakin ingin mengubah data periode?", "Ya", "Tidak").then(x=>{
                 periodeServices.put(item).then(res=>{
                     message.info('Proses Berhasil !!!');
                     $("#inputKaryawan").modal('hide');
@@ -261,7 +261,7 @@ function periodeController($scope, periodeServices, message) {
                 })
             })
         }else{
-            message.dialog("Anda yakin ingin menyimpan data karyawan?", "Ya", "Tidak").then(x=>{
+            message.dialog("Anda yakin ingin menyimpan data periode?", "Ya", "Tidak").then(x=>{
                 periodeServices.post(item).then(res=>{
                     message.info('Proses Berhasil !!!');
                     $("#inputKaryawan").modal('hide');
