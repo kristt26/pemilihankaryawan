@@ -34,7 +34,7 @@ class Auth extends ResourceController
             $session->set($result);
             return $this->respond($result);
         } else {
-            return $this->fail("Data Tidak Ditemukan");
+            return $this->fail("Username/password yang anda masukkan salah");
         }
     }
 

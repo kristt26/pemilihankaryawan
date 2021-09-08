@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse  w-auto  max-height-vh-100 h-100" id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link <?=$datamenu['menu']=='Dashboard' ? 'active': ''?>" href="<?= base_url('home')?>">
+                <a class="nav-link <?=$datamenu['menu'] == 'Dashboard' ? 'active' : ''?>" href="<?=base_url('home')?>">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1"
@@ -39,7 +39,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?=$datamenu['menu']=='Kriteria' ? 'active': ''?>" href="<?= base_url('kriteria')?>">
+                <a class="nav-link <?=$datamenu['menu'] == 'Kriteria' ? 'active' : ''?>"
+                    href="<?=base_url('kriteria')?>">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
@@ -83,8 +84,10 @@
                     <span class="nav-link-text ms-1">Kriteria</span>
                 </a>
             </li>
+
             <li class="nav-item">
-                <a class="nav-link <?=$datamenu['menu']=='Karyawan' ? 'active': ''?>" href="<?= base_url('karyawan')?>">
+                <a class="nav-link <?=$datamenu['menu'] == 'Karyawan' ? 'active' : ''?>"
+                    href="<?=base_url('karyawan')?>">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
@@ -174,7 +177,47 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?=$datamenu['menu']=='Periode' ? 'active': ''?>" href="<?= base_url('periode')?>">
+                <a class="nav-link <?=$datamenu['menu'] == 'Outlet' ? 'active' : ''?>" href="<?=base_url('Outlet')?>">
+                    <div
+                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <svg height="480pt" viewBox="0 0 480 480" width="480pt" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="m448 464v-304c0-3.671875-2.5-6.871094-6.0625-7.761719l-153.9375-38.488281v-41.75c0-3.625-2.4375-6.792969-5.9375-7.730469l-240-64c-2.398438-.640625-4.964844-.128906-6.933594 1.386719-1.972656 1.511719-3.128906 3.855469-3.128906 6.34375v456h-32v16h480v-16zm-400-445.601562 224 59.726562v385.875h-40v-88c0-4.417969-3.582031-8-8-8h-128c-4.417969 0-8 3.582031-8 8v88h-40zm56 365.601562h48v80h-48zm64 80v-80h48v80zm168 0v-64h48v64zm64 0v-72c0-4.417969-3.582031-8-8-8h-64c-4.417969 0-8 3.582031-8 8v72h-32v-333.753906l144 36v297.753906zm0 0" />
+                            <path
+                                d="m104 336h32c4.417969 0 8-3.582031 8-8v-32c0-4.417969-3.582031-8-8-8h-32c-4.417969 0-8 3.582031-8 8v32c0 4.417969 3.582031 8 8 8zm8-32h16v16h-16zm0 0" />
+                            <path
+                                d="m184 336h32c4.417969 0 8-3.582031 8-8v-32c0-4.417969-3.582031-8-8-8h-32c-4.417969 0-8 3.582031-8 8v32c0 4.417969 3.582031 8 8 8zm8-32h16v16h-16zm0 0" />
+                            <path
+                                d="m344 304h-32c-4.417969 0-8 3.582031-8 8v32c0 4.417969 3.582031 8 8 8h32c4.417969 0 8-3.582031 8-8v-32c0-4.417969-3.582031-8-8-8zm-8 32h-16v-16h16zm0 0" />
+                            <path
+                                d="m408 304h-32c-4.417969 0-8 3.582031-8 8v32c0 4.417969 3.582031 8 8 8h32c4.417969 0 8-3.582031 8-8v-32c0-4.417969-3.582031-8-8-8zm-8 32h-16v-16h16zm0 0" />
+                            <path
+                                d="m344 240h-32c-4.417969 0-8 3.582031-8 8v32c0 4.417969 3.582031 8 8 8h32c4.417969 0 8-3.582031 8-8v-32c0-4.417969-3.582031-8-8-8zm-8 32h-16v-16h16zm0 0" />
+                            <path
+                                d="m408 240h-32c-4.417969 0-8 3.582031-8 8v32c0 4.417969 3.582031 8 8 8h32c4.417969 0 8-3.582031 8-8v-32c0-4.417969-3.582031-8-8-8zm-8 32h-16v-16h16zm0 0" />
+                            <path
+                                d="m344 176h-32c-4.417969 0-8 3.582031-8 8v32c0 4.417969 3.582031 8 8 8h32c4.417969 0 8-3.582031 8-8v-32c0-4.417969-3.582031-8-8-8zm-8 32h-16v-16h16zm0 0" />
+                            <path
+                                d="m408 176h-32c-4.417969 0-8 3.582031-8 8v32c0 4.417969 3.582031 8 8 8h32c4.417969 0 8-3.582031 8-8v-32c0-4.417969-3.582031-8-8-8zm-8 32h-16v-16h16zm0 0" />
+                            <path
+                                d="m104 272h32c4.417969 0 8-3.582031 8-8v-32c0-4.417969-3.582031-8-8-8h-32c-4.417969 0-8 3.582031-8 8v32c0 4.417969 3.582031 8 8 8zm8-32h16v16h-16zm0 0" />
+                            <path
+                                d="m184 272h32c4.417969 0 8-3.582031 8-8v-32c0-4.417969-3.582031-8-8-8h-32c-4.417969 0-8 3.582031-8 8v32c0 4.417969 3.582031 8 8 8zm8-32h16v16h-16zm0 0" />
+                            <path
+                                d="m104 208h32c4.417969 0 8-3.582031 8-8v-32c0-4.417969-3.582031-8-8-8h-32c-4.417969 0-8 3.582031-8 8v32c0 4.417969 3.582031 8 8 8zm8-32h16v16h-16zm0 0" />
+                            <path
+                                d="m184 208h32c4.417969 0 8-3.582031 8-8v-32c0-4.417969-3.582031-8-8-8h-32c-4.417969 0-8 3.582031-8 8v32c0 4.417969 3.582031 8 8 8zm8-32h16v16h-16zm0 0" />
+                            <path
+                                d="m104 144h32c4.417969 0 8-3.582031 8-8v-32c0-4.417969-3.582031-8-8-8h-32c-4.417969 0-8 3.582031-8 8v32c0 4.417969 3.582031 8 8 8zm8-32h16v16h-16zm0 0" />
+                            <path
+                                d="m184 144h32c4.417969 0 8-3.582031 8-8v-32c0-4.417969-3.582031-8-8-8h-32c-4.417969 0-8 3.582031-8 8v32c0 4.417969 3.582031 8 8 8zm8-32h16v16h-16zm0 0" />
+                        </svg>
+                    </div>
+                    <span class="nav-link-text ms-1">Outlet</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?=$datamenu['menu'] == 'Periode' ? 'active' : ''?>" href="<?=base_url('periode')?>">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg height="512pt" viewBox="-11 0 512 512.001" width="512pt"
@@ -247,8 +290,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?=$datamenu['menu']=='Penilaian' ? 'active': ''?>"
-                    href="<?= base_url('penilaian')?>">
+                <a class="nav-link <?=$datamenu['menu'] == 'Penilaian' ? 'active' : ''?>"
+                    href="<?=base_url('penilaian')?>">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg id="Capa_1" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512"
@@ -279,7 +322,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?=$datamenu['menu']=='Analysis' ? 'active': ''?>" href="<?= base_url('analysis')?>">
+                <a class="nav-link <?=$datamenu['menu'] == 'Analysis' ? 'active' : ''?>"
+                    href="<?=base_url('analysis')?>">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"

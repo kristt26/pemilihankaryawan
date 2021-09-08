@@ -5,7 +5,8 @@ angular.module('adminctrl', [])
     .controller('karyawanController', karyawanController)
     .controller('periodeController', periodeController)
     .controller('penilaianController', penilaianController)
-    .controller('analysisController', analysisController);
+    .controller('analysisController', analysisController)
+    .controller('outletController', outletController);
 
 function pageController($scope, helperServices) {
     $scope.Title = "Page Header";
@@ -345,5 +346,79 @@ function analysisController($scope, analysisServices, message) {
     })
     $scope.print = () => {
         $("#print").printArea();
+    }
+}
+
+function outletController($scope, outletServices, message) {
+    $scope.$emit("SendUp", "Outlet");
+    $scope.datas = [];
+    $scope.model = {};
+    $scope.karyawans = [];
+    $scope.temKaryawans = [];
+    $scope.kar = false;
+    outletServices.get().then(res=>{
+        $scope.datas = res.outlets;
+        $scope.karyawans = res.karyawan;
+        $scope.temKaryawans = angular.copy(res.karyawan);
+        console.log($scope.karyawans);
+    })
+
+    $scope.edit = (item)=>{
+        $scope.model = angular.copy(item);
+        console.log($scope.model);
+        $("#inputKaryawan").modal('show');
+    }
+    
+    $scope.save = (item)=>{
+        if(item.id){
+            message.dialog("Anda yakin ingin mengubah data outlet?", "Ya", "Tidak").then(x=>{
+                outletServices.put(item).then(res=>{
+                    message.info('Proses Berhasil !!!');
+                    $("#inputKaryawan").modal('hide');
+                    $scope.model = {};
+                })
+            })
+        }else{
+            message.dialog("Anda yakin ingin menyimpan data outlet?", "Ya", "Tidak").then(x=>{
+                outletServices.post(item).then(res=>{
+                    message.info('Proses Berhasil !!!');
+                    $("#inputKaryawan").modal('hide');
+                    $scope.model = {};
+                })
+            })
+        }
+    }
+
+    $scope.delete = (item)=>{
+        message.dialog("Yakin ingin menghapus?", "Ya", "Tidak").then(x=>{
+            outletServices.deleted(item).then(res=>{
+                message.info("Berhasil menghapus outlet");
+            })
+        })
+    }
+
+    $scope.showKar = (item)=>{
+        $scope.outletKar = item;
+        $scope.kar = true;
+        console.log($scope.outletKar);
+    }
+
+    $scope.saveKar = (item)=>{
+        outletServices.postKar(item).then(res=>{
+            message.info('Proses Berhasil !!!');
+            $("#inputSubKriteria").modal('hide');
+            $scope.modelKar = {};
+        })
+    }
+
+    $scope.deleteKar = (item, outlet)=>{
+        item.outletid = outlet.id;
+        message.dialog("Yakin ingin menghapus?", "Ya", "Tidak").then(x=>{
+            outletServices.deletedKar(item).then(res=>{
+                var kar = $scope.temKaryawans.find(set=>set.id == res.karyawanid);
+                $scope.karyawans.push(angular.copy(kar))
+                message.info("Berhasil menghapus outlet");
+            })
+        })
     }
 }

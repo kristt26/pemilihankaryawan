@@ -5,7 +5,8 @@ angular.module('admin.service', [])
     .factory('karyawanServices', karyawanServices)
     .factory('periodeServices', periodeServices)
     .factory('penilaianServices', penilaianServices)
-    .factory('analysisServices', analysisServices);
+    .factory('analysisServices', analysisServices)
+    .factory('outletServices', outletServices);
 
 
 function dashboardServices($http, $q, $state, helperServices, AuthService) {
@@ -592,6 +593,148 @@ function analysisServices($http, $q, helperServices, AuthService, message) {
         }).then(
             (res) => {
                 service.data = res.data;
+                def.resolve(res.data);
+            },
+            (err) => {
+                def.reject(err.data);
+                message.info(err.data);
+            }
+        );
+        return def.promise;
+    }
+}
+
+function outletServices($http, $q, helperServices, AuthService, message) {
+    var controller = helperServices.url + 'outlet/';
+    var service = {};
+    service.data = [];
+    return {
+        get:get, post:post, put: put, deleted:deleted, postKar:postKar, deletedKar:deletedKar
+    };
+
+    function get() {
+        var def = $q.defer();
+        $http({
+            method: 'get',
+            url: controller + 'read',
+            headers: AuthService.getHeader()
+        }).then(
+            (res) => {
+                service.data = res.data;
+                def.resolve(res.data);
+            },
+            (err) => {
+                def.reject(err.data);
+                message.error(err.data);
+            }
+        );
+        return def.promise;
+    }
+
+    function post(param) {
+        var def = $q.defer();
+        $http({
+            method: 'post',
+            url: controller + 'create',
+            data: param,
+            headers: AuthService.getHeader()
+        }).then(
+            (res) => {
+                service.data.push(res.data);
+                def.resolve(res.data);
+            },
+            (err) => {
+                def.reject(err.data);
+                message.info(err.data);
+            }
+        );
+        return def.promise;
+    }
+
+    function put(param) {
+        var def = $q.defer();
+        $http({
+            method: 'put',
+            url: controller + 'update',
+            data: param,
+            headers: AuthService.getHeader()
+        }).then(
+            (res) => {
+                var data = service.data.find(x=>x.id == param.id);
+                if(data){
+                    data.nama = param.nama;
+                    data.hp = param.hp;
+                    data.email = param.email;
+                    data.alamat = param.alamat;
+                    data.status = param.status;
+                }
+                def.resolve(res.data);
+            },
+            (err) => {
+                def.reject(err.data);
+                message.info(err.data);
+            }
+        );
+        return def.promise;
+    }
+
+    function deleted(param) {
+        var def = $q.defer();
+        $http({
+            method: 'delete',
+            url: controller + 'delete/' + param.id,
+            headers: AuthService.getHeader()
+        }).then(
+            (res) => {
+                var index = service.data.indexOf(param);
+                service.data.splice(index, 1);
+                def.resolve(res.data);
+            },
+            (err) => {
+                def.reject(err.data);
+                message.info(err.data);
+            }
+        );
+        return def.promise;
+    }
+
+    function postKar(param) {
+        var def = $q.defer();
+        $http({
+            method: 'post',
+            url: controller + 'createKar',
+            data: param,
+            headers: AuthService.getHeader()
+        }).then(
+            (res) => {
+                var outlet = service.data.outlets.find(x=>x.id == res.data.outletid);
+                var kar = angular.copy(service.data.karyawan.find(x=>x.id == res.data.karyawanid));
+                kar.karoutid = res.data.karoutid;
+                outlet.karyawan.push(angular.copy(kar));
+                var index = service.data.karyawan.indexOf(service.data.karyawan.find(x=>x.id == res.data.karyawanid));
+                service.data.karyawan.splice(index, 1);
+                def.resolve(res.data);
+            },
+            (err) => {
+                def.reject(err.data);
+                message.info(err.data);
+            }
+        );
+        return def.promise;
+    }
+
+    function deletedKar(param) {
+        var def = $q.defer();
+        $http({
+            method: 'delete',
+            url: controller + 'deleteKar/' + param.karoutid,
+            headers: AuthService.getHeader()
+        }).then(
+            (res) => {
+                var outlet = service.data.outlets.find(x=>x.id==param.outletid);
+                var kar = angular.copy(service.data.karyawan.find(x=>x.id==param.id))
+                var index = outlet.karyawan.indexOf(kar);
+                outlet.karyawan.splice(index, 1);
                 def.resolve(res.data);
             },
             (err) => {
