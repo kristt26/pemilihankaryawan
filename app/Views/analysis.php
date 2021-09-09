@@ -1,7 +1,7 @@
 <div class="row" ng-controller="analysisController">
     <div class="col-md-12">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 mb-3">
                 <div class="card card-danger">
                     <div class="card-header">
                         <h5 class="card-title"><i class="fas fa-th-list"></i>&nbsp;&nbsp; Bobot Kriteria</h5>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mb-3">
                 <div class="card card-danger">
                     <div class="card-header">
                         <h5 class="card-title"><i class="fas fa-th-list"></i>&nbsp;&nbsp; Normalisasi Bobot</h5>
@@ -61,7 +61,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mb-3">
                 <div class="card card-danger">
                     <div class="card-header">
                         <h5 class="card-title"><i class="fas fa-th-list"></i>&nbsp;&nbsp; Data Matriks</h5>
@@ -98,7 +98,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mb-3">
                 <div class="card card-danger">
                     <div class="card-header">
                         <h5 class="card-title"><i class="fas fa-th-list"></i>&nbsp;&nbsp; Nilai Vektor</h5>

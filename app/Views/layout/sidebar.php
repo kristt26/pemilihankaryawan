@@ -176,7 +176,7 @@
                     <span class="nav-link-text ms-1">Karyawan</span>
                 </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link <?=$datamenu['menu'] == 'Outlet' ? 'active' : ''?>" href="<?=base_url('Outlet')?>">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -215,7 +215,7 @@
                     </div>
                     <span class="nav-link-text ms-1">Outlet</span>
                 </a>
-            </li>
+            </li> -->
             <li class="nav-item">
                 <a class="nav-link <?=$datamenu['menu'] == 'Periode' ? 'active' : ''?>" href="<?=base_url('periode')?>">
                     <div
